@@ -1,7 +1,7 @@
 # CodilityAssignment
 
-Tool : Selenium WebDriver
-Proramming Language : c#
+### -Tool : Selenium WebDriver
+### -Proramming Language : c#
 IDE : Visual Studio
 Test Framework : MSTest
 BDD : SpecFlow
