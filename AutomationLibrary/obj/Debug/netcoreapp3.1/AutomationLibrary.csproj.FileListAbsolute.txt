@@ -1,0 +1,11 @@
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\bin\Debug\netcoreapp3.1\AutomationLibrary.deps.json
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\bin\Debug\netcoreapp3.1\AutomationLibrary.dll
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\bin\Debug\netcoreapp3.1\AutomationLibrary.pdb
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.csproj.AssemblyReference.cache
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.AssemblyInfoInputs.cache
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.AssemblyInfo.cs
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.csproj.CoreCompileInputs.cache
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.dll
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\obj\Debug\netcoreapp3.1\AutomationLibrary.pdb
+C:\Users\apple\source\repos\DemoShop\AutomationLibrary\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.MSTest.SpecFlowPlugin.dll
