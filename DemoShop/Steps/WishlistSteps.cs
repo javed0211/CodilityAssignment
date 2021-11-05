@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,13 +36,17 @@ namespace DemoShop.Steps
         [When(@"I search for lowest price product")]
         public void WhenISearchForLowestPriceProduct()
         {
-            var allItemsFromWishList = BaseSteps.DemoShopDriver.wishList.Get
+            var lowestProduct = BaseSteps.DemoShopDriver.wishList.GetLowestPriceProduct();
+            _scenarioContext["lowestProduct"] = lowestProduct;
+
         }
 
         [When(@"I am able to add the lowest price to my cart")]
         public void WhenIAmAbleToAddTheLowestPriceToMyCart()
         {
-            ScenarioContext.Current.Pending();
+            var lowestPriceProduct = (IWebElement)(_scenarioContext["lowestProduct"]);
+            BaseSteps.DemoShopDriver.wishList.AddProductInCart(lowestPriceProduct.Text);
+            _scenarioContext["productName"] = lowestPriceProduct.Text;
         }
     }
 }

@@ -23,11 +23,7 @@ namespace DemoShop.Steps
 
         
 
-        [Then(@"I am able to verify the item in my cart")]
-        public void ThenIAmAbleToVerifyTheItemInMyCart()
-        {
-            ScenarioContext.Current.Pending();
-        }
+        
 
     }
 }

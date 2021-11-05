@@ -16,5 +16,10 @@ namespace AutomationLibrary
         {
             return (T)Activator.CreateInstance(typeof(T), new object[] { client });
         }
+
+        public bool VerifyItemInCart(string product)
+        {
+            return _client.VerifyItemInCart(product);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -27,9 +28,13 @@ namespace AutomationLibrary
             return _client.GetWishlistItems();
         }
 
-        public string GetLowestPriceProduct()
+        public IWebElement GetLowestPriceProduct()
         {
             return _client.GetLowestPriceProduct();
+        }
+        public void AddProductInCart(string productName)
+        {
+            _client.AddProductToCart(productName);
         }
 
     }

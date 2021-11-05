@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 
 namespace AutomationLibrary
 {
@@ -177,19 +178,33 @@ namespace AutomationLibrary
 
         }
 
-        internal string GetLowestPriceProduct()
+        internal IWebElement GetLowestPriceProduct()
         {
-
+            IEnumerable<IWebElement> prices = driver.FindElements(By.XPath("//table[contains(@class,'wishlist_table')]//tr/td//span[contains(@class,'woocommerce-Price-amount')]"));
+            string lowestPrice = prices.Select(x => x.Text).ToList().Min();
+            IWebElement lowestPriceProduct = driver.FindElement(By.XPath("//table[contains(@class,'wishlist_table')]//tr/td//span[contains(@class,'woocommerce-Price-amount')]/bdi[contains(text(),'" + lowestPrice + "')]/ancestor::td//preceding-sibling::td[@class='product-name']"));
+            return lowestPriceProduct;
         }
 
-        internal void AddProductToCart()
+        internal void AddProductToCart(string productName)
         {
-
+            driver.FindElement(By.XPath("//td[@class='product-name']/a[contains(text(),'" + productName + "')]//../following-sibling::td[@class='product-add-to-cart']")).Click();
+            Thread.Sleep(2000);
         }
 
-        internal string GetItemsFromCart()
+        internal bool VerifyItemInCart(string productName)
         {
-
+            IWebElement product = driver.FindElement(By.XPath("//td[@class='product-name']/a[contains(text(),'" + productName + "')]"));
+            if (product.Displayed)
+                return true;
+            else
+                return false;
         }
+        //internal string GetItemsFromCart()
+        //{
+        //    driver.FindElement(By.XPath("//a[@class='cart-contents'][@title='Cart']")).Click();
+        //    Thread.Sleep(3000);
+
+        //}
     }
 }
