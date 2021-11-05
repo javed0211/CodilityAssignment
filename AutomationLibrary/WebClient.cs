@@ -165,6 +165,7 @@ namespace AutomationLibrary
         {
             IWebElement wishList = driver.FindElement(By.XPath(Clothing.Xpath["btnWishlist"]));
             wishList.Click();
+            Thread.Sleep(1000);
         }
 
         internal void SelectWishlistPage()
@@ -181,7 +182,7 @@ namespace AutomationLibrary
         internal IWebElement GetLowestPriceProduct()
         {
             IEnumerable<IWebElement> prices = driver.FindElements(By.XPath("//table[contains(@class,'wishlist_table')]//tr/td//span[contains(@class,'woocommerce-Price-amount')]"));
-            string lowestPrice = prices.Select(x => x.Text).ToList().Min();
+            string lowestPrice = prices.Select(x => x.Text).ToList().Min().Split('£').Last();
             IWebElement lowestPriceProduct = driver.FindElement(By.XPath("//table[contains(@class,'wishlist_table')]//tr/td//span[contains(@class,'woocommerce-Price-amount')]/bdi[contains(text(),'" + lowestPrice + "')]/ancestor::td//preceding-sibling::td[@class='product-name']"));
             return lowestPriceProduct;
         }
@@ -194,6 +195,8 @@ namespace AutomationLibrary
 
         internal bool VerifyItemInCart(string productName)
         {
+            driver.FindElement(By.XPath("//a[@class='cart-contents']")).Click();
+            Thread.Sleep(2000);
             IWebElement product = driver.FindElement(By.XPath("//td[@class='product-name']/a[contains(text(),'" + productName + "')]"));
             if (product.Displayed)
                 return true;

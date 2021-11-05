@@ -37,16 +37,15 @@ namespace DemoShop.Steps
         public void WhenISearchForLowestPriceProduct()
         {
             var lowestProduct = BaseSteps.DemoShopDriver.wishList.GetLowestPriceProduct();
-            _scenarioContext["lowestProduct"] = lowestProduct;
+            _scenarioContext["lowestProduct"] = lowestProduct.Text;
 
         }
 
         [When(@"I am able to add the lowest price to my cart")]
         public void WhenIAmAbleToAddTheLowestPriceToMyCart()
         {
-            var lowestPriceProduct = (IWebElement)(_scenarioContext["lowestProduct"]);
-            BaseSteps.DemoShopDriver.wishList.AddProductInCart(lowestPriceProduct.Text);
-            _scenarioContext["productName"] = lowestPriceProduct.Text;
+            var lowestPriceProduct = (string)(_scenarioContext["lowestProduct"]);
+            BaseSteps.DemoShopDriver.wishList.AddProductInCart(lowestPriceProduct);
         }
     }
 }

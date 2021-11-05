@@ -34,7 +34,7 @@ namespace DemoShop.Steps
         [Then(@"I am able to verify the item in my cart")]
         public void ThenIAmAbleToVerifyTheItemInMyCart()
         {
-            string productName = (string)_scenarioContext["productName"];
+            string productName = (string)_scenarioContext["lowestProduct"];
             Assert.IsTrue(BaseSteps.DemoShopDriver.Cart.VerifyItemInCart(productName));
         }
     }
